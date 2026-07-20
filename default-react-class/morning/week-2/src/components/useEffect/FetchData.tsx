@@ -11,36 +11,56 @@ Requirements:
 - Add a "Refresh User" button (optional)
 */
 
+/**
+ * Get Data, Make a request to an api 
+ * 1. useState to hold the data
+ * 2. useEffect - when do you want to fetch data
+ * 3. how do we want to render the data
+ */
+
+/**
+ * 1. useState [10 users in here]
+ * 2. make a request to the api 
+ * 3. update state to new data from the api 
+ * 4. useState [10 users in here]
+ * 5. update the ui to show 10 users
+ */
+
 export default function RandomUser() {
-  const [users, setUsers] = useState<any>();
+  const [usersData, setUsersData] = useState<any>([]);// undefined => [10 users in here]
+  const [numberOfUsers, setNumberOfUsers] = useState<string>('');
 
-  async function fetchUser() {
+  async function fetchData() {
+    // making a request to get data from this api endpoint
     try {
-      const data = await fetch("https://randomuser.me/api/?results=10").then(
-        (res) => res.json(),
-      );
-
-      console.log(data);
-      setUsers(data.results);
-    } catch (err) {
-      throw new Error("There was an error: " + err);
+      // 
+      const data = await fetch(`https://randomuser.me/api/?results=${numberOfUsers}`)
+      .then(response => response.json());
+      
+      setUsersData(data.results);
+      
+    } catch (error) {
+      console.error(error);
+      throw new Error('Failed to fetch data' + error);
     }
   }
 
   useEffect(() => {
-    fetchUser();
-  }, []);
+    fetchData();
+  }, [numberOfUsers]);
 
   return (
-    <div>
-      <button>Update State</button>
-      {users?.map((user: any) => {
-        return (
-          <div>
-            {user.name.first}, {user.name.last}
-          </div>
-        )
-      })}
+    <div className="flex flex-col justify-center items-center gap-2">
+      <input className="border-1 rounded-xl p-2" onChange={(e) => setNumberOfUsers(e.target.value)} value={numberOfUsers} />
+      {/* <button onClick={fetchData} className="border-1 rounded-xl px-4 py-2">Get Users</button> */}
+      
+      {/* userData.map(() =>  some stuff here) | nothing shows up here */}
+      {usersData.map((user: any) => (
+        <div className="flex gap-2">
+          <p>name: {user.name.first}</p>
+          <p>gender: {user.gender}</p>
+        </div>
+      ))}
     </div>
   );
 }
