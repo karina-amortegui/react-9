@@ -1,4 +1,3 @@
-import React from "react";
 import ProblemCard from "../extras/ProblemCard";
 
 export const Stats = () => {

@@ -1,4 +1,5 @@
-import ProblemCard from "../components/ProblemCard";
+import ProblemCard from "../extras/ProblemCard";
+
 export const PriceGreaterThan20 = () => {
   const products = [
     { id: 1, name: "Sticker Pack", price: 5 },

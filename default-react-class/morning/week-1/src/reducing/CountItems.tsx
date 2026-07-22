@@ -1,9 +1,12 @@
-import React from "react";
 import ProblemCard from "../extras/ProblemCard";
 // cart.reduce((acc, curr) => , default value)
 
 export const CountItems = () => {
   const items = ["a", "b", "c", "d", 12];
+
+  const count = items.reduce((count: number) => {
+    return count + 1;
+  }, 0);
 
   return (
     <ProblemCard
@@ -12,6 +15,7 @@ export const CountItems = () => {
       question="Use reduce() to count how many items are in the array (without using .length)."
       dataPreview={items}
     >
+      <p>{count}</p>
     </ProblemCard>
   );
 };

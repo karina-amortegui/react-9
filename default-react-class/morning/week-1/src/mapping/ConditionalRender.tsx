@@ -1,7 +1,7 @@
-import ProblemCard from "../components/ProblemCard";
+import ProblemCard from "../extras/ProblemCard";
 
 /**
- * Conditionally Render the list of users that are online 
+ * Conditionally Render the list of users that are online
  */
 
 export const ConditionalRender = () => {
@@ -20,6 +20,20 @@ export const ConditionalRender = () => {
       question='Render each user with a status: "🟢 Online" or "⚪ Offline".'
       dataPreview={users}
     >
+      {users.map((user) => {
+        if (user.isOnline) {
+          return <li>`{user.name} 🟢 Online`</li>;
+        } else {
+          return <li>`{user.name} ⚪ Offline`</li>;
+        }
+      })}
+      ;
+      {/* Alternative: 
+{users.map((user) => (
+  <li>
+    {user.name} {user.isOnline ? "🟢 Online" : "⚪ Offline"}
+  </li>
+))}; */}
     </ProblemCard>
   );
 };

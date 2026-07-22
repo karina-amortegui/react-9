@@ -8,12 +8,18 @@ export const CartTotal = () => {
     { id: 2, name: "Pen", price: 3, quantity: 5 },
   ];
 
+  const sum = cart.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
   return (
     <ProblemCard
       title="Reduce 09 — Calculate totals"
       method="reduce"
       question="Use reduce() to calculate total cost: sum(price * quantity)."
       dataPreview={cart}
-    ></ProblemCard>
+    >
+      <p>{sum}</p>
+    </ProblemCard>
   );
 };

@@ -11,7 +11,11 @@ export const FormatPrices = () => {
     >
       {prices.map((price) => {
         const formattedPrice = price.toFixed(2);
-        return <span>${formattedPrice}</span>;
+        return (
+          <ul>
+            <li>${formattedPrice}</li>
+          </ul>
+        );
       })}
     </ProblemCard>
   );

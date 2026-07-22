@@ -1,4 +1,4 @@
-import ProblemCard from "../components/ProblemCard";
+import ProblemCard from "../extras/ProblemCard";
 
 // users.filter(() => somevalue === value)
 
@@ -9,6 +9,8 @@ export const AdminsOnly = () => {
     { id: 3, name: "Robin", isAdmin: true },
   ];
 
+  const admins = users.filter((user) => user.isAdmin === true);
+
   return (
     <ProblemCard
       title="Filter 03 — Filter objects by property"
@@ -17,6 +19,12 @@ export const AdminsOnly = () => {
       dataPreview={users}
     >
       {/* [{ id: 1, name: "Alex", isAdmin: true}, { id: 3, name: "Robin", isAdmin: true }] */}
+
+      {admins.map((admin) => (
+        <ul>
+          <li>{admin.name}</li>
+        </ul>
+      ))}
     </ProblemCard>
   );
 };

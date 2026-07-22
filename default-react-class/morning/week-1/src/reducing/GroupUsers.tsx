@@ -1,4 +1,3 @@
-import React from "react";
 import ProblemCard from "../extras/ProblemCard";
 
 export const GroupUsers = () => {
@@ -8,23 +7,19 @@ export const GroupUsers = () => {
     { id: 3, name: "Karina", role: "user" },
     { id: 4, name: "Jin", role: "admin" },
     { id: 5, name: "Bone", role: "admin" },
-    { id: 5, name: "Aziz", role: "support" },
-    { id: 5, name: "Riley", role: "it" },
   ];
 
   const groupedRoles = users.reduce(
     (acc: any, curr: any) => {
-      const role = curr.role;
-
-      if (!acc.role) {
-        acc[role].push(curr);
+      if (curr.role === "admin") {
+        acc.admin.push(curr);
       } else {
-        acc[role].push(curr);
+        acc.user.push(curr);
       }
 
       return acc;
     },
-    { admin: [], user: []},
+    { admin: [], user: [] },
   );
 
   return (
@@ -36,8 +31,14 @@ export const GroupUsers = () => {
     >
       <div>
         {/* TODO: const grouped = users.reduce((acc, u) => {...}, {} as Record<string, typeof users>) Admin: , */}
-        {groupedRoles.admin.map(() => )}
-        {groupedRoles.user.map(() => )}
+        {groupedRoles.admin.map((admin) => (
+          <li key={admin.id}>{admin.name}</li>
+        ))}
+        ;
+        {groupedRoles.user.map((user) => (
+          <li key={user.id}>{user.name}</li>
+        ))}
+        ;
       </div>
     </ProblemCard>
   );

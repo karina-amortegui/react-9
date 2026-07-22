@@ -3,7 +3,7 @@ import ProblemCard from "../extras/ProblemCard";
 /**
  * Render out the list of numbers
  * nums.map(() => )
- */ 
+ */
 
 export const RenderNumbers = () => {
   const numbers = [1, 2, 3, 4];
@@ -25,8 +25,10 @@ export const RenderNumbers = () => {
 const NumberCard = ({ data }: { data: number }) => {
   return (
     <div>
-      <h1>Number: </h1>
-      <p>{data}</p>
+      <h3>Number: </h3>
+      <p>
+        <b>{data}</b>
+      </p>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import ProblemCard from "../extras/ProblemCard";
 
-export function RenderFruitList() {
+export function FruitList() {
   const fruits = ["Apple", "Banana", "Orange"];
 
   return (
@@ -17,6 +17,3 @@ export function RenderFruitList() {
     </ProblemCard>
   );
 }
-
-
-export default RenderFruitList;

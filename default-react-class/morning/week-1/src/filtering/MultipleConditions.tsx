@@ -1,6 +1,5 @@
 import ProblemCard from "../extras/ProblemCard";
 
-
 export const MultipleConditions = () => {
   const users = [
     { id: 1, name: "Chris", active: true, age: 17 },

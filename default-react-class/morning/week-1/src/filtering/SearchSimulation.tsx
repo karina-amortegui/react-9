@@ -1,7 +1,8 @@
-import React from "react";
+import ProblemCard from "../extras/ProblemCard";
 
 export const SearchSimulation = ({ searchTerm }) => {
   const items = ["React", "JavaScript", "TypeScript", "Node", "CSS"];
+
   return (
     <ProblemCard
       title="Filter 08 — Search simulation"

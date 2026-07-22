@@ -1,7 +1,6 @@
 import ProblemCard from "../extras/ProblemCard";
 
 export const EvensOnly = () => {
-
   return (
     <ProblemCard
       title="Filter 01 — Even numbers only"

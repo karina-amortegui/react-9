@@ -1,4 +1,4 @@
-import React from "react";
+import ProblemCard from "../extras/ProblemCard";
 
 export const PreFilter = () => {
   const products = [
@@ -13,7 +13,6 @@ export const PreFilter = () => {
       method="filter"
       question="Filter to in-stock products first, then map into a reusable component."
       dataPreview={products}
-    >
-    </ProblemCard>
+    ></ProblemCard>
   );
 };

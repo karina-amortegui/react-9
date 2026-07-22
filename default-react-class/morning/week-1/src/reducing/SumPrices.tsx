@@ -5,6 +5,8 @@
 
 // array.reduce((acc, curr) => conditional logic, initial value);
 
+import ProblemCard from "../extras/ProblemCard";
+
 export const SumPrices = () => {
   const products = [
     { id: 1, name: "Mouse", price: 25 },
