@@ -11,6 +11,14 @@ Requirements:
 - Observe differences
 */
 
-export default function RenderLogger() {
-  return <div>{/* CODE HERE */}</div>;
+export function RenderLogger() {
+  const [counter, setCounter] = useState(0);
+  
+  
+
+  return 
+    <div>
+      <label>Push Enter to count renders</label>
+      <button type="text" value=""
+    </div>;
 }

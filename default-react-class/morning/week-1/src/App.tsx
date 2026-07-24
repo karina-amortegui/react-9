@@ -1,57 +1,76 @@
+import { useState, useEffect } from 'react';
+
+import { useFetchData } from "wherever";
+
+
+
+const useFetchData = () => {
+  const [data, setData] = useState();
+  
+  async function fetchData() {
+    try {
+      const { data } = await fetch("url");
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  return data;
+}
+
+
 import "./App.css";
+import { Greeting } from "./components/Greeting"
+import { MovementCard } from "./components/MovementCard";
+import { Footer } from "./components/Footer";
 
-// Mapping
-import { CapitalizeWords } from "./mapping/CapitalizeWords";
-import { ConditionalRender } from "./mapping/ConditionalRender";
-import { DoubleNumbers } from "./mapping/DoubleNumbers";
-import { FormatPrices } from "./mapping/FormatPrices";
-import { FruitList } from "./mapping/FruitList";
-import { FullNames } from "./mapping/FullNames";
-import { RankedList } from "./mapping/RankedList";
-import { RenderFromData } from "./mapping/RenderFromData";
-import { RenderNumbers } from "./mapping/RenderNumbers";
-import { RenderObjects } from "./mapping/RenderObjects";
 
-// Filtering
-import { AdminsOnly } from "./filtering/AdminsOnly";
-import { CaseInsensitive } from "./filtering/CaseInsensitive";
-import { EmptyState } from "./filtering/EmptyState";
 
-// Reduce
-import { CartTotal } from "./reducing/CartTotal";
-import { CountItems } from "./reducing/CountItems";
-import { CountOccurences } from "./reducing/CountOccurences";
+// api requests, take user input, button, search bar, smart components
 
-// import { EvensOnly } from "./filtering/EvensOnly"
-// import { LongWordsOnly } from "./filtering/LongWordsOnly"
-// import { MultipleConditions } from "./filtering/MultipleConditions";
-import { SumNumbers } from "./reducing/SumNumbers";
-import { GroupUsers } from "./reducing/GroupUsers";
+
+// function addTwoNumbers(a, b) {
+//   return a + b;
+// }
 
 function App() {
+
+  const deadPointData = { 
+    id: 1,
+    movement: "dead point", 
+    shortSummary: "Dead Point summary", 
+    fullDescription: "This is the full description", 
+    difficulty: 7, 
+    style: "Dynamic", 
+    exercises: []
+  };
+
+  const dropKneeData = { 
+    id: 2,
+    movement: "Drop Knee", 
+    shortSummary: "Drop Knee summary", 
+    fullDescription: "This is the full description", 
+    difficulty: 4, 
+    style: "Static", 
+    exercises: []
+  };
+
+  // const filteredMovements = movements.filter(movement => movement.difficulty > 5);
+  // 1. Dead Point
+  // 2. Drop Knee
+
+  //return -> what you are displaying to the screen in a component
   return (
     <>
-      <CapitalizeWords />
-      <ConditionalRender />
-      <DoubleNumbers />
-      <FormatPrices />
-      <FruitList />
-      <FullNames />
-      <RankedList />
-      <RenderFromData />
-      <RenderNumbers />
-      <RenderObjects />
+      {/* Dead Point */}
+      First one
+      <MovementCard id={1} movement="Dead Point" difficulty={7} style="dynamic" />
+      
+      Second One
+      {/* Drop Knee */}
+      <MovementCard id={2} movement="Drop Knee" difficulty={4} style="static" />
 
-      <AdminsOnly />
-      <CaseInsensitive />
-      <EmptyState />
-
-      <CartTotal />
-      <CountItems />
-      <CountOccurences />
-
-      <SumNumbers />
-      <GroupUsers />
+      <Footer />
     </>
   );
 }
